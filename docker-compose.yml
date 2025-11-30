@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:6
+    restart: always
+    ports: ["27017:27017"]
+    volumes:
+      - mongo-data:/data/db
+  backend:
+    build: ./backend
+    command: npm run dev
+    volumes: ["./backend:/app"]
+    ports: ["5000:5000"]
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/employee-portal
+      - JWT_SECRET=changeit
+    depends_on: ["mongo"]
+volumes:
+  mongo-data:
