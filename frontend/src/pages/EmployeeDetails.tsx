@@ -88,8 +88,8 @@ export default function EmployeeDetails() {
             ${emp.role === "admin"
               ? "bg-red-100 text-red-700"
               : emp.role === "supervisor"
-              ? "bg-blue-100 text-blue-700"
-              : "bg-indigo-100 text-indigo-700"}
+                ? "bg-blue-100 text-blue-700"
+                : "bg-indigo-100 text-indigo-700"}
           `}>
             {emp.role}
           </span>
